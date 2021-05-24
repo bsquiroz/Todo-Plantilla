@@ -11,12 +11,29 @@ const Todo = ({ todo, deleteTodo, setAuxTodo, updateEstado }) => {
         <div>
             <hr />
             <p>{name}</p>
-            <p onClick={() => cambiarEstado(todo)}>
-                {desc} - {estado ? "verde" : "rojo"}
-            </p>
+            {desc} -{" "}
+            {estado ? (
+                <button
+                    onClick={() => cambiarEstado(todo)}
+                    className="btn completo"
+                >
+                    Completo
+                </button>
+            ) : (
+                <button
+                    onClick={() => cambiarEstado(todo)}
+                    className="btn incompleto"
+                >
+                    Incompleto
+                </button>
+            )}
             <div>
-                <button onClick={() => deleteTodo(todo.id)}>Eliminar</button>
-                <button onClick={() => setAuxTodo(todo)}>Modificar</button>
+                <button className="btn " onClick={() => deleteTodo(todo.id)}>
+                    Eliminar
+                </button>
+                <button className="btn " onClick={() => setAuxTodo(todo)}>
+                    Modificar
+                </button>
             </div>
             <hr />
         </div>
